@@ -1,0 +1,142 @@
+body {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Helvetica;
+    color: #444444;
+}
+
+.centered{
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.largetext {
+    padding: 10vh 0vw 0vh 0vw;
+    font-size: 8em;
+    font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+
+input {
+    text-align: center;
+}
+
+.buttonubuntu:active {
+    box-shadow:inset 0px 2px 1px rgba(0, 0, 0, 0.3);
+}
+
+#autocomplete li {
+    list-style-type: none;
+    text-align: center;
+}
+
+#autocomplete {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.dictionary-result {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.dictionary-result-panel {
+    padding: 20px;
+}
+
+.dictionary-result-panel.left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 20vw;
+}
+
+.dictionary-result-panel.right {
+    width: 20vw;
+    margin: 0px 0px 0px 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-beginning;
+    justify-content: flex-beginning;
+}
+
+#char-page {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.submission-button {
+    font-size: 1.3em;
+    margin: 0 auto;
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.submission-button:visited, .submission-button:link,.character-link:visited, .character-link:link  {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.no-results {
+    font-size: 2em;
+}
+
+div, ol {
+    animation-duration: .5s;
+    animation-name: globalfade;
+}
+
+.deck-config-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.deck-config-buttons>form>input {
+        width: 15vw;
+        border-radius: 20px;
+        outline: none;
+        transition: all .2s ease-in-out;
+        font-size: 1.3em;
+}
+.red {
+    background-color: #EE4444;
+    color: white;
+}
+
+.remove-char-button {
+    width: 5vw;
+    border-radius: 20px;
+    outline: none;
+    transition: all .2s ease-in-out;
+    margin-left: 46vw;
+}
+
+.create-deck-button {
+    width: 9.4vw;
+    font-size: 1em;
+    border-radius: 20px;
+    outline: none;
+    transition: all .2s ease-in-out;
+}
+
+.create-deck-input {
+    border-radius: 20px;
+    outline: none;
+    transition: all .2s ease-in-out;
+}
+
+@keyframes globalfade {
+  from {
+    transform: opacity: 0;
+  }
+
+  to {
+    transform: opacity: 1;
+  }
+}

@@ -1,0 +1,21 @@
+.main-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.15em;
+    color: #444444;
+    line-height: 2;
+}
+
+.main-content p {
+    width: 50vw;
+    padding: 20px;
+}
+
+.centered-text {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}

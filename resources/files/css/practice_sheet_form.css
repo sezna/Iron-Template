@@ -1,0 +1,74 @@
+.generic-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    outline: none;
+    color: #444444;
+    font-size: 1.3em;
+    animation-duration: .7s;
+    animation-name: globalfade;
+}
+
+.generic-form input, select {
+    width: 15vw;
+    border-radius: 20px;
+    outline: none;
+    transition: all .2s ease-in-out;
+}
+
+.generic-form textarea {
+    width: 40vw;
+    transition: all .2s ease-in-out;
+}
+
+.generic-form textarea:hover, .generic-form input:hover, .generic-form select:hover {
+    transform: scale(1.05);
+}
+
+.generic-form input[type="submit"] {
+    margin: 20px;
+}
+.generic-form select, textarea, input {
+   padding: 5px 8px;
+   box-shadow: none;
+   background: transparent;
+   background-image: none;
+   -webkit-appearance: none;
+   text-align: center;
+   text-align-last: center;
+  }
+
+select:focus {
+   outline: none;
+}
+
+textarea {
+    border-radius: 20px;
+    outline: none;
+}
+
+.form-info {
+    padding: 20px 0px 0px 0px;
+}
+
+.form-error {
+    font-size: 1.6em;
+    background-color: #FF9494;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+    list-style-type: none;
+    width: 30vw;
+    margin: 0 auto;
+}
+
+@keyframes globalfade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
