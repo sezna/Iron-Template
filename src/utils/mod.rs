@@ -1,5 +1,5 @@
 use iron::prelude::*;
-use iron::{Request, status};
+use iron::{status, Request};
 use std::collections::HashMap;
 use std::io::Read;
 use std::result::Result;

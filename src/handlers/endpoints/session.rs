@@ -1,15 +1,15 @@
 use iron::{IronResult, Request, Response};
+use std::process::Command;
 use store::preferences::Preferences;
 use store::user::UserRole;
 use store::{get_store, get_user, Session, SessionKey};
-use std::process::Command;
 
+use handlers;
+use handlers::template;
 use snowflake::ProcessUniqueId;
 use templates::pages;
-use handlers::template;
-use handlers;
 use templates::pages::generic::form;
-use utils::{get_body_parameters, html_response};
+use utils::get_body_parameters;
 use utils::security::{hash_match, hash_password};
 /// The endpoint to log in or register. Requires three things in the body: The username,
 /// the password (if logging in), and the action "register" or "login". To register you also need
@@ -122,16 +122,13 @@ pub fn session_management(r: &mut Request) -> IronResult<Response> {
             // Hash the password
             let hashed_password = hash_password(password);
 
-
             // Add user to current vector of users
             let user_id = {
                 state.write().unwrap().add_user(
                     username,
                     hashed_password,
                     UserRole::Normal,
-                    Preferences {
-
-                    },
+                    Preferences {},
                 )
             };
             // TODO abstract this login logic which is in log_in and register,
@@ -150,7 +147,9 @@ pub fn session_management(r: &mut Request) -> IronResult<Response> {
             println!("event: new user registered: {} {}", username, email);
             // Send a welcome email to the user.
             let project_directory = env!("CARGO_MANIFEST_DIR");
-            let mail_gun = Command::new(format!("{}/resources/mailgun.sh", project_directory)).arg(email).output();
+            let mail_gun = Command::new(format!("{}/resources/mailgun.sh", project_directory))
+                .arg(email)
+                .output();
 
             println!("{:?}", mail_gun);
             return template(pages::welcome(Box::new(get_user(r))));
@@ -158,7 +157,7 @@ pub fn session_management(r: &mut Request) -> IronResult<Response> {
         _ => (),
     }
 
-     handlers::pages::home(r)
+    handlers::pages::home(r)
 
     // TODO go to user profile, or better yet the last page they were on
 }

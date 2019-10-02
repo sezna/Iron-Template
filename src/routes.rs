@@ -1,13 +1,12 @@
 use router::Router;
-use std::sync::Arc;
 
 use iron::prelude::*;
 
+use handlers;
+use handlers::pages::{about, contact, home};
 use handlers::template;
 use store::get_user;
-use handlers::pages::{about, contact, home};
 use templates;
-use handlers;
 /*
 routes!( get "/" => homepage, get "/about" => about, get "/contact" => contact );
 

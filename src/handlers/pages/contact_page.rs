@@ -1,7 +1,7 @@
-use store::{User, get_user};
-use templates::components::{header, nav_bar};
 use iron::prelude::*;
-use horrorshow::prelude::*;
+use store::get_user;
+use templates::components::{header, nav_bar};
+
 use utils::html_response;
 
 pub fn contact(r: &mut Request) -> IronResult<Response> {

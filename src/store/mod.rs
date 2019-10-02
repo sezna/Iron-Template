@@ -19,7 +19,7 @@ pub mod user;
 
 use self::preferences::Preferences;
 pub use self::session::{Session, SessionId, SessionKey};
-pub use self::user::{User, UserId, UserRole, Password};
+pub use self::user::{Password, User, UserId, UserRole};
 
 #[derive(Serialize, Deserialize, Clone)]
 pub struct Store {
@@ -144,19 +144,21 @@ pub fn configure_store() -> Result<State<Store>, ()> {
     if !Path::new("store.dat").exists() {
         Store {
             // TODO blank this out when testing is over
-            users: vec![User::new(
-                "example_admin",
-                hash_password("example_password"), // good luck, hackers!
-                UserRole::Admin,
-                &0,
-                Preferences {
-
-                },
-            ), User::new("example_user",
-            hash_password("example_password"),
-            UserRole::Normal,
-            &1,
-            Preferences {})
+            users: vec![
+                User::new(
+                    "example_admin",
+                    hash_password("example_password"), // good luck, hackers!
+                    UserRole::Admin,
+                    &0,
+                    Preferences {},
+                ),
+                User::new(
+                    "example_user",
+                    hash_password("example_password"),
+                    UserRole::Normal,
+                    &1,
+                    Preferences {},
+                ),
             ],
             sessions: HashMap::<SessionId, UserId>::new(),
         }

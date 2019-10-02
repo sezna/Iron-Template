@@ -1,23 +1,22 @@
 use handlers::settings;
 use iron::prelude::*;
-use iron::status;
+
 use store::preferences::Preferences;
 use store::{get_store, get_user};
-use templates;
-use utils::{get_body_parameters, html_response};
+
 use handlers::pages::home;
+use utils::get_body_parameters;
 
 pub fn edit_settings(r: &mut Request) -> IronResult<Response> {
-    let params = get_body_parameters(r);
+    let _params = get_body_parameters(r);
 
     let user_id = if let Some(user) = get_user(r) {
         user.id
     } else {
-       return home(r);
+        return home(r);
     };
 
-    let preferences = Preferences {
-    };
+    let preferences = Preferences {};
 
     get_store(r)
         .write()

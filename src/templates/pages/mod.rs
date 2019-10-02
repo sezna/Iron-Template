@@ -1,4 +1,3 @@
-
 pub mod generic;
 mod welcome_page;
 

@@ -1,8 +1,8 @@
 use horrorshow::helper::doctype;
-use horrorshow::prelude::*;
+
 use iron::prelude::*;
 
-use store::{User, get_user};
+use store::get_user;
 use templates::components::{header, nav_bar};
 use utils::html_response;
 
@@ -21,7 +21,5 @@ pub fn home(r: &mut Request) -> IronResult<Response> {
         }
     );
 
-
     Ok(html_response(markup.to_string()))
 }
-

@@ -1,6 +1,6 @@
-use store::{User, get_user};
+use store::get_user;
 use templates::components::{header, nav_bar};
-use horrorshow::prelude::*;
+
 use iron::prelude::*;
 use utils::html_response;
 pub fn about(r: &mut Request) -> IronResult<Response> {
