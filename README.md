@@ -1,0 +1,1 @@
+This is a major work in progress. It is a framework with some convenience macros and whatnot for building a fully fledged composable component-based web application in Rust with a full user system, session management, persistent application store, and more.
