@@ -1,16 +1,16 @@
 use iron::{IronResult, Request, Response};
 use std::process::Command;
-use store::preferences::Preferences;
-use store::user::UserRole;
-use store::{get_store, get_user, Session, SessionKey};
+use crate::store::preferences::Preferences;
+use crate::store::user::UserRole;
+use crate::store::{get_store, get_user, Session, SessionKey};
 
-use handlers;
-use handlers::template;
+use crate::handlers;
+use crate::handlers::template;
 use snowflake::ProcessUniqueId;
-use templates::pages;
-use templates::pages::generic::form;
-use utils::get_body_parameters;
-use utils::security::{hash_match, hash_password};
+use crate::templates::pages;
+use crate::templates::pages::generic::form;
+use crate::utils::get_body_parameters;
+use crate::utils::security::{hash_match, hash_password};
 /// The endpoint to log in or register. Requires three things in the body: The username,
 /// the password (if logging in), and the action "register" or "login". To register you also need
 /// an email and password confirmation (pconfirm).

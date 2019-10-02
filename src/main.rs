@@ -22,7 +22,7 @@ use secure_session::middleware::{SessionConfig, SessionMiddleware};
 use secure_session::session::ChaCha20Poly1305SessionManager;
 use staticfile::Static;
 
-use store::{configure_store, Session, SessionKey};
+use crate::store::{configure_store, Session, SessionKey};
 
 mod handlers;
 mod routes;

@@ -1,9 +1,9 @@
 use iron::prelude::*;
 
-use store::{get_store, get_user, UserRole};
+use crate::store::{get_store, get_user, UserRole};
 
-use handlers::pages::home;
-use utils::validate_query_params;
+use crate::handlers::pages::home;
+use crate::utils::validate_query_params;
 
 /// Saves the store (current state of the application) to a data file. Only works if you are logged in as an Admin.
 /// Takes one parameter: `format`, which determines if we are saving to json or bincode.

@@ -3,7 +3,7 @@ pub type UserId = usize;
 use super::preferences::Preferences;
 use serde_derive::{Deserialize, Serialize};
 
-use utils::security::CREDENTIAL_LEN;
+use crate::utils::security::CREDENTIAL_LEN;
 #[derive(Clone, Serialize, Deserialize)]
 pub struct User {
     pub name: String,

@@ -2,9 +2,9 @@ use horrorshow::helper::doctype;
 
 use iron::prelude::*;
 
-use store::get_user;
-use templates::components::{header, nav_bar};
-use utils::html_response;
+use crate::store::get_user;
+use crate::templates::components::{header, nav_bar};
+use crate::utils::html_response;
 
 pub fn home(r: &mut Request) -> IronResult<Response> {
     let user = Box::new(get_user(r));

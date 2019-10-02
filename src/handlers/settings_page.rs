@@ -1,9 +1,9 @@
 use iron::prelude::*;
 
-use handlers::pages;
-use store::get_user;
-use templates::pages::generic::form::{FieldType, Form, FormField};
-use utils::html_response;
+use crate::handlers::pages;
+use crate::store::get_user;
+use crate::templates::pages::generic::form::{FieldType, Form, FormField};
+use crate::utils::html_response;
 
 pub fn settings(r: &mut Request) -> IronResult<Response> {
     let resp = if let Some(user) = get_user(r) {

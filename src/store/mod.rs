@@ -11,7 +11,7 @@ use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
 use std::sync::{Arc, RwLock};
-use utils::security::hash_password;
+use crate::utils::security::hash_password;
 
 pub mod preferences;
 pub mod session;

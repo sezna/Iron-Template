@@ -1,5 +1,5 @@
-use store::User;
-use templates::components::{header, nav_bar};
+use crate::store::User;
+use crate::templates::components::{header, nav_bar};
 
 // TODO better welcome page?
 pub fn welcome(user: Box<Option<User>>) -> String {

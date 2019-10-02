@@ -5,8 +5,8 @@ mod form_field;
 pub mod templates;
 pub use self::form_field::{FieldType, FormField};
 
-use store::User;
-use templates::components::{header, nav_bar};
+use crate::store::User;
+use crate::templates::components::{header, nav_bar};
 
 // The "default value" property doesn't work
 // for select dropdowns. There are some details about avoiding extra clones here    :

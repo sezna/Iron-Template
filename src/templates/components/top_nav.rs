@@ -1,6 +1,6 @@
 use horrorshow::prelude::*;
 
-use store::{User, UserRole};
+use crate::store::{User, UserRole};
 
 pub fn nav_bar(user: Box<Option<User>>) -> Box<dyn RenderBox> {
     box_html! {

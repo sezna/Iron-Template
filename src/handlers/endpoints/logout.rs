@@ -1,7 +1,7 @@
 use iron::{IronResult, Request, Response};
-use store::{get_store, SessionKey};
+use crate::store::{get_store, SessionKey};
 
-use handlers::pages;
+use crate::handlers::pages;
 
 /// To log out, you only need the username, but your session ID is authenticated against
 /// the current sessions, so you cannot log out other users.

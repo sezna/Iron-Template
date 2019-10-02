@@ -1,4 +1,4 @@
-use templates::pages::generic::form::{FieldType, Form, FormField};
+use crate::templates::pages::generic::form::{FieldType, Form, FormField};
 
 pub fn log_in() -> Form {
     Form::new(

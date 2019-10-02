@@ -1,8 +1,8 @@
-use store::get_user;
-use templates::components::{header, nav_bar};
+use crate::store::get_user;
+use crate::templates::components::{header, nav_bar};
 
 use iron::prelude::*;
-use utils::html_response;
+use crate::utils::html_response;
 pub fn about(r: &mut Request) -> IronResult<Response> {
     let user = Box::new(get_user(r));
     let markup = html! {

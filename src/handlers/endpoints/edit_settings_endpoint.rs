@@ -1,11 +1,11 @@
-use handlers::settings;
+use crate::handlers::settings;
 use iron::prelude::*;
 
-use store::preferences::Preferences;
-use store::{get_store, get_user};
+use crate::store::preferences::Preferences;
+use crate::store::{get_store, get_user};
 
-use handlers::pages::home;
-use utils::get_body_parameters;
+use crate::handlers::pages::home;
+use crate::utils::get_body_parameters;
 
 pub fn edit_settings(r: &mut Request) -> IronResult<Response> {
     let _params = get_body_parameters(r);

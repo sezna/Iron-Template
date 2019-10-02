@@ -2,11 +2,11 @@ use router::Router;
 
 use iron::prelude::*;
 
-use handlers;
-use handlers::pages::{about, contact, home};
-use handlers::template;
-use store::get_user;
-use templates;
+use crate::handlers;
+use crate::handlers::pages::{about, contact, home};
+use crate::handlers::template;
+use crate::store::get_user;
+use crate::templates;
 /*
 routes!( get "/" => homepage, get "/about" => about, get "/contact" => contact );
 
