@@ -15,7 +15,7 @@ pub fn home(r: &mut Request) -> IronResult<Response> {
             body {
                 : nav_bar(user.clone());
                 div(id="title", class="centered largetext") {
-                    p { :"Rust Template" }
+                    p { :"Hello world!" }
                 }
             }
         }

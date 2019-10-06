@@ -29,6 +29,8 @@ mod routes;
 mod store;
 mod templates;
 mod utils;
+#[macro_use]
+mod macros;
 
 fn main() {
     let project_directory = env!("CARGO_MANIFEST_DIR");

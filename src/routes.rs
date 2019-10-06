@@ -2,41 +2,10 @@ use router::Router;
 
 use iron::prelude::*;
 
-use crate::handlers;
-use crate::handlers::endpoints::{edit_settings, log_out, save_store, session_management};
-use crate::handlers::pages::{about, contact, home, log_in, register, settings};
-
-/*
-routes!( get "/" => homepage, get "/about" => about, get "/contact" => contact );
-
-... expands into ...
-
-let mut router = Router::new();
-router.get("/", |r: &mut Request| homepage(r), "/");
-router.get("/about", |r: &mut Request| about(r), "/about");
-router.get("/contact", |r: &mut Request| contact(r), "/contact");
-
-*/
-
-macro_rules! routes {
-    (
-        $(
-            $method:ident $path:expr => $destination:expr
-         ),+
-    ) => {
-            {
-                let mut router = Router::new();
-                $(
-                    match stringify!($method).to_string().as_str()  {
-                        "get" =>  { router.get($path,  |r: &mut Request| $destination(r), $path); },
-                        "post" => { router.post($path, |r: &mut Request| $destination(r), $path); },
-                        _ => {}
-                    };
-                )+
-                router
-            }
-    }
-}
+use ::handlers;
+use ::handlers::endpoints::{edit_settings, log_out, save_store, session_management};
+use ::handlers::pages::{about, contact, home, log_in, register, settings};
+use ::routes;
 
 pub fn build_router() -> Router {
     // Routes
