@@ -3,10 +3,9 @@ use router::Router;
 use iron::prelude::*;
 
 use crate::handlers;
-use crate::handlers::pages::{about, contact, home, register};
-use crate::handlers::template;
-use crate::store::get_user;
-use crate::templates;
+use crate::handlers::endpoints::{edit_settings, log_out, save_store, session_management};
+use crate::handlers::pages::{about, contact, home, log_in, register, settings};
+
 /*
 routes!( get "/" => homepage, get "/about" => about, get "/contact" => contact );
 
@@ -39,51 +38,18 @@ macro_rules! routes {
     }
 }
 
-pub fn build_configured_router() -> Router {
+pub fn build_router() -> Router {
     // Routes
-
-    let mut router = routes!(get "/" => home,
-                                      get "/about" => about,
-                                      get "/contact" => contact,
-                                      get "/register" => register   );
-
-    router.post(
-        "/session",
-        |r: &mut Request| handlers::endpoints::session_management(r),
-        "session",
-    );
-
-    router.get(
-        "/login",
-        |r: &mut Request| {
-            handlers::template(templates::pages::generic::form::templates::log_in().render(r))
-        },
-        "login",
-    );
-
-    router.get(
-        "/savestore",
-        |r: &mut Request| handlers::endpoints::save_store_endpoint(r),
-        "savestore",
-    );
-
-    router.get(
-        "/logout",
-        |r: &mut Request| handlers::endpoints::logout_endpoint(r),
-        "logout",
-    );
-
-    router.get(
-        "/settings",
-        |r: &mut Request| handlers::settings(r),
-        "settings",
-    );
-
-    router.post(
-        "/editsettings",
-        |r: &mut Request| handlers::endpoints::edit_settings(r),
-        "editsettings",
-    );
-
+    #[rustfmt::skip]
+    let mut router = routes!( get  "/" => home,
+                              get  "/about" => about,
+                              get  "/contact" => contact,
+                              get  "/register" => register,
+                              post "/session" => session_management,
+                              get  "/log-in" => log_in,
+                              get  "/save-store" => save_store,
+                              get  "/log-out" => log_out,
+                              get  "/settings" => settings,
+                              post "/edit-settings" => edit_settings);
     return router;
 }

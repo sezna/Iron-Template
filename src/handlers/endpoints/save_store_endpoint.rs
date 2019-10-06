@@ -7,7 +7,7 @@ use crate::utils::validate_query_params;
 
 /// Saves the store (current state of the application) to a data file. Only works if you are logged in as an Admin.
 /// Takes one parameter: `format`, which determines if we are saving to json or bincode.
-pub fn save_store_endpoint(r: &mut Request) -> IronResult<Response> {
+pub fn save_store(r: &mut Request) -> IronResult<Response> {
     let store = get_store(r);
     if let Some(user) = get_user(r) {
         if user.role == UserRole::Admin {

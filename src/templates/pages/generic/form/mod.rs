@@ -5,7 +5,7 @@ mod form_field;
 pub mod templates;
 pub use self::form_field::{FieldType, FormField};
 
-use crate::store::{get_user, User};
+use crate::store::get_user;
 use crate::templates::components::{header, nav_bar};
 
 use iron::prelude::*;

@@ -32,7 +32,7 @@ mod utils;
 
 fn main() {
     let project_directory = env!("CARGO_MANIFEST_DIR");
-    let router = routes::build_configured_router();
+    let router = routes::build_router();
     let files_path = format!("{}{}", project_directory, "/resources/files");
 
     let store = configure_store().expect("Error loading store.");

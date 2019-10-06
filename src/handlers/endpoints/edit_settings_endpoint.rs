@@ -1,4 +1,4 @@
-use crate::handlers::settings;
+use crate::handlers::pages::settings;
 use iron::prelude::*;
 
 use crate::store::preferences::Preferences;

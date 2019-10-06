@@ -31,14 +31,14 @@ pub fn nav_bar(user: Box<Option<User>>) -> Box<dyn RenderBox> {
                         : "Admin"
                     }
                     div(class="dropdown-items") {
-                        a(href="/savestore?format=bincode") { : "Save Store" }
-                        a(href="/savestore?format=json") { : "Save Store to Json" }
+                        a(href="/save-store?format=bincode") { : "Save Store" }
+                        a(href="/save-store?format=json") { : "Save Store to Json" }
 
                     }
                 }
             } else if user.is_none() {
                 span(class="nav-item") {
-                    a(href="/login") { : "Login" }
+                    a(href="/log-in") { : "Log in" }
                 }
                 span(class="nav-item") {
                     a(href="/register") { : "Register" }

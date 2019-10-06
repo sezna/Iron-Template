@@ -8,7 +8,7 @@ use crate::utils::html_response;
 pub fn settings(r: &mut Request) -> IronResult<Response> {
     let resp = if let Some(user) = get_user(r) {
         let _current_preferences = user.preferences.clone();
-        html_response(Form::new("Settings", vec![], "/editsettings", "Save").render(r))
+        html_response(Form::new("Settings", vec![], "/edit-settings", "Save").render(r))
     } else {
         pages::home(r).unwrap()
     };

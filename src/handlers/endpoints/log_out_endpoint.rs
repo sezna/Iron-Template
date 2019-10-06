@@ -6,7 +6,7 @@ use crate::handlers::pages;
 /// To log out, you only need the username, but your session ID is authenticated against
 /// the current sessions, so you cannot log out other users.
 
-pub fn logout_endpoint(r: &mut Request) -> IronResult<Response> {
+pub fn log_out(r: &mut Request) -> IronResult<Response> {
     let session_id = r.extensions.remove::<SessionKey>();
     match session_id {
         Some(session) => {
