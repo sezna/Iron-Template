@@ -3,7 +3,7 @@ use router::Router;
 use iron::prelude::*;
 
 use crate::handlers;
-use crate::handlers::pages::{about, contact, home};
+use crate::handlers::pages::{about, contact, home, register};
 use crate::handlers::template;
 use crate::store::get_user;
 use crate::templates;
@@ -38,23 +38,14 @@ macro_rules! routes {
             }
     }
 }
+
 pub fn build_configured_router() -> Router {
     // Routes
 
-    let mut router = routes!( get "/" => home,
+    let mut router = routes!(get "/" => home,
                                       get "/about" => about,
-                                      get "/contact" => contact );
-
-    router.get(
-        "/register",
-        |r: &mut Request| {
-            template(
-                templates::pages::generic::form::templates::register()
-                    .render(Box::new(get_user(r))),
-            )
-        },
-        "registerform",
-    );
+                                      get "/contact" => contact,
+                                      get "/register" => register   );
 
     router.post(
         "/session",
@@ -65,9 +56,7 @@ pub fn build_configured_router() -> Router {
     router.get(
         "/login",
         |r: &mut Request| {
-            handlers::template(
-                templates::pages::generic::form::templates::log_in().render(Box::new(get_user(r))),
-            )
+            handlers::template(templates::pages::generic::form::templates::log_in().render(r))
         },
         "login",
     );

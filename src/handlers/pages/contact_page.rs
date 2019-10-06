@@ -1,6 +1,6 @@
-use iron::prelude::*;
 use crate::store::get_user;
 use crate::templates::components::{header, nav_bar};
+use iron::prelude::*;
 
 use crate::utils::html_response;
 

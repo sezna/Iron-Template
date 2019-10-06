@@ -1,5 +1,5 @@
-use iron::{IronResult, Request, Response};
 use crate::store::{get_store, SessionKey};
+use iron::{IronResult, Request, Response};
 
 use crate::handlers::pages;
 

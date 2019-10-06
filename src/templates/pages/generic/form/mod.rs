@@ -5,12 +5,10 @@ mod form_field;
 pub mod templates;
 pub use self::form_field::{FieldType, FormField};
 
-use crate::store::User;
+use crate::store::{get_user, User};
 use crate::templates::components::{header, nav_bar};
 
-// The "default value" property doesn't work
-// for select dropdowns. There are some details about avoiding extra clones here    :
-// https://docs.rs/horrorshow/0.7.0/horrorshow/#returning-templates
+use iron::prelude::*;
 
 #[derive(Clone)]
 pub struct Form {
@@ -83,7 +81,8 @@ impl Form {
 
     /// A generic form component which takes in a list of [[FormProperty]]s (how do I pluralize correctly while maintaining
     /// the global link to [[FormProperty]]?)
-    pub fn render(&self, user: Box<Option<User>>) -> String {
+    pub fn render(&self, r: &mut Request) -> String {
+        let user = Box::new(get_user(r));
         let css_path = if let Some(path) = self.clone().css_path {
             path
         } else {

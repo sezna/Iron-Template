@@ -1,5 +1,6 @@
 use bincode::{deserialize, serialize};
 
+use crate::utils::security::hash_password;
 use iron::typemap::Key;
 use iron::Plugin;
 use iron::Request;
@@ -11,7 +12,6 @@ use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
 use std::sync::{Arc, RwLock};
-use crate::utils::security::hash_password;
 
 pub mod preferences;
 pub mod session;

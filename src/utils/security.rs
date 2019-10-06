@@ -1,6 +1,6 @@
+use crate::store::user::Password;
 use ring::rand::SecureRandom;
 use ring::{digest, pbkdf2, rand};
-use crate::store::user::Password;
 
 pub const CREDENTIAL_LEN: usize = digest::SHA256_OUTPUT_LEN;
 pub const N_ITER: u32 = 300_000;

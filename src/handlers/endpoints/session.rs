@@ -1,16 +1,16 @@
-use iron::{IronResult, Request, Response};
-use std::process::Command;
 use crate::store::preferences::Preferences;
 use crate::store::user::UserRole;
 use crate::store::{get_store, get_user, Session, SessionKey};
+use iron::{IronResult, Request, Response};
+use std::process::Command;
 
 use crate::handlers;
 use crate::handlers::template;
-use snowflake::ProcessUniqueId;
 use crate::templates::pages;
 use crate::templates::pages::generic::form;
 use crate::utils::get_body_parameters;
 use crate::utils::security::{hash_match, hash_password};
+use snowflake::ProcessUniqueId;
 /// The endpoint to log in or register. Requires three things in the body: The username,
 /// the password (if logging in), and the action "register" or "login". To register you also need
 /// an email and password confirmation (pconfirm).
@@ -43,7 +43,7 @@ pub fn session_management(r: &mut Request) -> IronResult<Response> {
                 form.set_defaults(vec![Some(username), None, None]);
                 form.add_error("Username or password didn't match.");
                 println!("event: failed login attempt: {} {}", username, password);
-                let mut resp = Response::with(form.render(Box::new(get_user(r))));
+                let mut resp = Response::with(form.render(r));
                 resp.headers.set(iron::headers::ContentType::html());
                 return Ok(resp);
             };
@@ -114,7 +114,7 @@ pub fn session_management(r: &mut Request) -> IronResult<Response> {
             }
 
             if form.has_errors() {
-                let mut resp = Response::with(form.render(Box::new(get_user(r))));
+                let mut resp = Response::with(form.render(r));
                 resp.headers.set(iron::headers::ContentType::html());
                 return Ok(resp);
             }
