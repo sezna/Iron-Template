@@ -43,7 +43,7 @@ fn main() {
     chain.link_before(store);
 
     // session management
-    let key = *b"84730567777778471123456700938567";
+    let key = *b"12341234123478471123456700938567";
     let manager = ChaCha20Poly1305SessionManager::<Session>::from_key(key);
     let config = SessionConfig::default();
     let session_middleware =

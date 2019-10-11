@@ -8,7 +8,6 @@ use ::handlers::pages::{about, contact, home, log_in, register, settings};
 use ::routes;
 
 pub fn build_router() -> Router {
-    // Routes
     #[rustfmt::skip]
     let mut router = routes!( get  "/" => home,
                               get  "/about" => about,

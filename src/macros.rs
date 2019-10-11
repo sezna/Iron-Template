@@ -1,15 +1,6 @@
 
-/*
-routes!( get "/" => homepage, get "/about" => about, get "/contact" => contact );
-
-... expands into ...
-
-let mut router = Router::new();
-router.get("/", |r: &mut Request| homepage(r), "/");
-router.get("/about", |r: &mut Request| about(r), "/about");
-router.get("/contact", |r: &mut Request| contact(r), "/contact");
-
-*/
+//! This module contains convenience macros for various repetitive tasks.
+/// Conveniently create router middleware for iron.
 #[macro_export]
 macro_rules! routes {
     (
